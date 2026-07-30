@@ -12,3 +12,6 @@ _final*.png
 # OS cruft
 .DS_Store
 Thumbs.db
+
+# pasted screenshots
+Screenshot*.png
