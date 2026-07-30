@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Lucas Wesson</title>
+<meta name="description" content="Get in touch with Lucas Wesson about AI and security roles or select projects.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="dot"></span>LUCAS WESSON</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="page-head wrap">
+    <span class="label"><span class="tick">//</span> CONTACT</span>
+    <h1>Let's build systems that hold under real adversaries.</h1>
+    <p class="lead">Available for AI + security roles and select projects. Send a message below, or reach me on LinkedIn.</p>
+  </section>
+
+  <section class="band">
+    <div class="wrap reveal">
+      <div class="contact-grid">
+        <div class="contact-intro">
+          <span class="label">Elsewhere</span>
+          <div class="links" style="margin-top:0.8rem;">
+            <a href="https://linkedin.com/in/lukewesson"><span class="arrow">→</span> linkedin.com/in/lukewesson</a>
+            <a href="https://github.com/Lwesson"><span class="arrow">→</span> github.com/Lwesson</a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <!-- Web3Forms: replace the value below with your own access key from https://web3forms.com
+               (enter your email there, they email you a key). The key only ROUTES to your inbox;
+               your address never appears on the page. -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="New message from your portfolio site">
+          <input type="hidden" name="from_name" value="Portfolio contact form">
+          <!-- honeypot: hidden from people, bots fill it and get rejected -->
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="cf-email">Your email</label>
+            <input id="cf-email" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="cf-submit">Send message</button>
+          <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-top">
+    <p class="foot-tag">AI evaluation, offensive security, and the tooling that ties them together.</p>
+    <nav class="foot-col" aria-label="Elsewhere">
+      <a href="https://linkedin.com/in/lukewesson">LinkedIn ↗</a>
+      <a href="https://github.com/Lwesson">GitHub ↗</a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Lucas Wesson</span>
+    <span>Bremerton, WA · PST</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

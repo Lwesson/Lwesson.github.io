@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Empirical Optimization &amp; Signal Analysis Platform — Lucas Wesson</title>
+<meta name="description" content="A multi-strategy research engine with a walk-forward backtesting core, systematic experiment design, and automated risk management.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="dot"></span>LUCAS WESSON</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="page-head wrap">
+    <a class="back-link" href="work.html"><span class="arrow">←</span> All work</a>
+    <span class="label" style="display:block;margin-top:1.4rem;"><span class="tick">//</span> DATA</span>
+    <h1>Empirical Optimization &amp; Signal Analysis Platform</h1>
+    <p class="lead">A research engine for testing thousands of hypotheses rigorously, with overfitting guarded against by design.</p>
+  </section>
+
+  <section class="band">
+    <div class="wrap band-grid reveal">
+      <div class="band-label">
+        <span class="label"><span class="tick">01</span> / OVERVIEW</span>
+      </div>
+      <div class="detail-body">
+        <h3>The problem</h3>
+        <p>When you can test thousands of configurations against historical data, it is trivially easy to fool yourself. Something will always look good in hindsight. The hard part is separating a genuine signal from a curve fit, and doing it at scale without hand-checking every result.</p>
+
+        <h3>What it does</h3>
+        <ul>
+          <li>Runs a multi-strategy engine across thousands of parameter configurations.</li>
+          <li>Validates with a walk-forward backtesting core across multiple timeframes, testing on data the parameters were not tuned on.</li>
+          <li>Applies automated risk management so no single configuration can run away.</li>
+          <li>Reports results in a structured form for comparison rather than raw dumps.</li>
+        </ul>
+
+        <h3>The approach</h3>
+        <p>The whole platform is built around systematic experiment design: state a hypothesis, test it out-of-sample, and let the data decide. Walk-forward validation is the core defense against overfitting, because a configuration only earns credit if it holds up on data it never saw during tuning. Iteration is data-driven, not narrative-driven.</p>
+
+        <h3>Stack</h3>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Walk-Forward Backtesting</span><span class="tag">Quant Analysis</span><span class="tag">Data Pipelines</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-top">
+    <p class="foot-tag">AI evaluation, offensive security, and the tooling that ties them together.</p>
+    <nav class="foot-col" aria-label="Elsewhere">
+      <a href="https://linkedin.com/in/lukewesson">LinkedIn ↗</a>
+      <a href="https://github.com/Lwesson">GitHub ↗</a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Lucas Wesson</span>
+    <span>Bremerton, WA · PST</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# dev-only helpers (not part of the deployed site)
+_artifact_preview.html
+_build_preview.py
+__pycache__/
+
+# scratch screenshots
+_shot*.png
+_p_*.png
+_preview*.png
+_final*.png
+
+# OS cruft
+.DS_Store
+Thumbs.db

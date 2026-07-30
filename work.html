@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — Lucas Wesson</title>
+<meta name="description" content="Selected projects by Lucas Wesson: AI-augmented security tooling, detection engineering, analysis platforms, and CTF work. Sanitized write-ups.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="dot"></span>LUCAS WESSON</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="page-head wrap">
+    <span class="label"><span class="tick">//</span> WORK</span>
+    <h1>Selected projects</h1>
+    <p class="lead">Systems I have built and competitions I have placed in. Client and program names are withheld for confidentiality, so these write-ups describe capability and approach only.</p>
+  </section>
+
+  <section class="band">
+    <div class="wrap reveal">
+      <div class="projects">
+        <article class="project">
+          <h3 class="p-title"><a href="project-platform.html">AI-Augmented Security Testing Platform</a></h3>
+          <span class="p-kind">Platform</span>
+          <p class="p-desc">A phase-driven testing pipeline that integrates large language model APIs for attack-surface reasoning, finding triage, and vulnerability-chain analysis. Orchestrates security tooling as controlled subprocesses with scope-aware guardrails that enforce rules of engagement at every stage.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">LLM APIs</span><span class="tag">Security Automation</span><span class="tag">Kali Linux</span></div>
+          <a class="p-more" href="project-platform.html">Read more <span>→</span></a>
+        </article>
+        <article class="project">
+          <h3 class="p-title"><a href="project-siem.html">Custom SIEM &amp; Security Operations Dashboard</a></h3>
+          <span class="p-kind">Detection</span>
+          <p class="p-desc">Real-time threat detection with a rule engine, log analysis, automated firewall blocking, and a live terminal dashboard. Built to shorten response time to active threats with configurable alerting.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Detection Engineering</span><span class="tag">iptables</span><span class="tag">Linux</span></div>
+          <a class="p-more" href="project-siem.html">Read more <span>→</span></a>
+        </article>
+        <article class="project">
+          <h3 class="p-title"><a href="project-analysis.html">Empirical Optimization &amp; Signal Analysis Platform</a></h3>
+          <span class="p-kind">Data</span>
+          <p class="p-desc">A multi-strategy analysis engine with a walk-forward backtesting core testing thousands of parameter configurations across timeframes, driven by systematic experiment design, data-driven iteration, and automated risk management.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Quant Analysis</span><span class="tag">Data Pipelines</span></div>
+          <a class="p-more" href="project-analysis.html">Read more <span>→</span></a>
+        </article>
+        <article class="project">
+          <h3 class="p-title"><a href="project-cyberquest.html">CyberQuest 2026 — ICS/SCADA CTF</a></h3>
+          <span class="p-kind">Competition</span>
+          <p class="p-desc">Top placement (13th, 96.55%) in a national ICS/SCADA capture-the-flag, performing industrial-control forensics and full attack-chain reconstruction under time pressure.</p>
+          <div class="tags"><span class="tag">ICS/SCADA</span><span class="tag">Forensics</span><span class="tag">Attack Chains</span></div>
+          <a class="p-more" href="project-cyberquest.html">Read more <span>→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-top">
+    <p class="foot-tag">AI evaluation, offensive security, and the tooling that ties them together.</p>
+    <nav class="foot-col" aria-label="Elsewhere">
+      <a href="https://linkedin.com/in/lukewesson">LinkedIn ↗</a>
+      <a href="https://github.com/Lwesson">GitHub ↗</a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Lucas Wesson</span>
+    <span>Bremerton, WA · PST</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
