@@ -18,8 +18,10 @@
       var next = current === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
       try { localStorage.setItem(key, next); } catch (e) {}
+      document.dispatchEvent(new Event("lw-theme-change"));
     });
   }
+
 
   // ---- mobile menu ----
   var navToggle = document.getElementById("navToggle");
@@ -107,4 +109,6 @@
     }, { threshold: 0.12 });
     items.forEach(function (el) { io.observe(el); });
   }
+
+  // aurora breathes in on each page load via pure CSS (see styles.css); navigation stays instant.
 })();

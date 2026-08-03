@@ -1,6 +1,6 @@
 # Lucas Wesson — Portfolio
 
-A hand-built static portfolio. Plain HTML/CSS/JS, no framework, no build step, no trackers.
+A static portfolio. Plain HTML/CSS/JS, no framework, no build step, no trackers.
 Multiple pages share one stylesheet and one script.
 
 ## Files (deploy these)
