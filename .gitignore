@@ -16,3 +16,6 @@ Thumbs.db
 # pasted screenshots
 Screenshot*.png
 Example Screenshots/
+
+# scratch build artifacts
+_*
