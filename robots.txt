@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lwesson.github.io/sitemap.xml

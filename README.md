@@ -11,9 +11,9 @@ dependency is two fonts from Google Fonts.
 
 ## Run locally
 
-    python3 -m http.server 8770
+    python3 -m http.server 8000
 
-Then open http://localhost:8770 and refresh as you edit.
+Then open http://localhost:8000 and refresh as you edit.
 
 ## Files
 
@@ -21,6 +21,14 @@ Then open http://localhost:8770 and refresh as you edit.
 - `og-image.png` - social preview card
 - `favicon.svg`, `favicon.png`, `apple-touch-icon.png` - icons
 - `nav-demo.html` - redirect to the root, kept so an older link still resolves
+- `research/` - write-ups, one standalone page each
+- `404.html` - not-found page (GitHub Pages serves it for any missing path)
+- `robots.txt`, `sitemap.xml` - crawler hints; add each new write-up to the sitemap
+- `.well-known/security.txt` - security contact, points at the contact form. Renew `Expires` before 2027-09-24
+- `.nojekyll` - tells GitHub Pages to serve files as-is, needed for `.well-known/`
+
+Every station has an address: `/#overview`, `/#work`, `/#research`, `/#discipline`, `/#about`,
+`/#contact`. Use `/#research` in applications.
 
 Each item in the nav pairs with one section: the `data-panel` on the button matches that
 section's `id`.

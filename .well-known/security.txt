@@ -1,0 +1,4 @@
+Contact: https://lwesson.github.io/#contact
+Expires: 2027-09-24T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://lwesson.github.io/.well-known/security.txt

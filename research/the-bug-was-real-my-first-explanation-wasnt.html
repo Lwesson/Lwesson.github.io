@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The bug was real. My first explanation wasn't. · Lucas Wesson</title>
+<meta name="description" content="A CAPTCHA bypass I reported was correct. My first account of why it worked was not. Disproving my own explanation was the actual work.">
+<link rel="canonical" href="https://lwesson.github.io/research/the-bug-was-real-my-first-explanation-wasnt.html">
+<meta name="theme-color" content="#05070f">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Lucas Wesson">
+<meta property="og:title" content="The bug was real. My first explanation wasn't.">
+<meta property="og:description" content="A CAPTCHA bypass I reported was correct. My first account of why it worked was not. Disproving my own explanation was the actual work.">
+<meta property="og:url" content="https://lwesson.github.io/research/the-bug-was-real-my-first-explanation-wasnt.html">
+<meta property="og:image" content="https://lwesson.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;500;600&family=Archivo:wght@400;500;600&display=swap">
+<style>
+:root{
+  --void:#05070f;
+  --line:rgba(150,180,255,.14);
+  --dim:#6e789c;
+  --mid:#9aa4c8;
+  --text:#d7dcf2;
+  --amber:#f0bc55;
+  --amber-hot:#ffd882;
+  --mono:"Martian Mono","JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{
+  margin:0;background:var(--void);color:var(--text);font-family:var(--sans);
+  font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(127,168,255,.10),transparent 70%);
+  background-repeat:no-repeat;
+}
+.wrap{max-width:680px;margin:0 auto;padding:56px 24px 72px}
+.back{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mid);text-decoration:none}
+.back:hover,.back:focus-visible{color:var(--amber);outline:none}
+.kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.3em;color:var(--amber);text-transform:uppercase;margin:64px 0 16px}
+h1{font-size:clamp(28px,4.4vw,40px);line-height:1.18;font-weight:600;color:#eef1fc;margin:0 0 18px;text-wrap:balance}
+.dek{font-size:19px;line-height:1.5;color:var(--mid);margin:0 0 30px}
+.byline{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:40px}
+h2{font-size:21px;font-weight:600;color:#e9edfb;margin:46px 0 12px}
+p{margin:0 0 20px;color:#c3c9e4}
+strong{color:#eef1fc;font-weight:600}
+blockquote{margin:26px 0;padding:4px 0 4px 20px;border-left:2px solid var(--amber);color:var(--text);font-size:17.5px}
+code{font-family:var(--mono);font-size:.86em;background:rgba(150,180,255,.09);padding:2px 6px;border-radius:4px;color:#d9e0f6}
+pre{background:rgba(150,180,255,.06);border:1px solid var(--line);border-radius:8px;padding:16px 18px;overflow-x:auto;margin:24px 0;font-family:var(--mono);font-size:13px;line-height:1.6;color:#c9d2ee}
+pre code{background:none;padding:0;font-size:inherit}
+a{color:var(--amber);text-decoration:underline;text-decoration-color:rgba(240,188,85,.4);text-underline-offset:3px}
+a:hover,a:focus-visible{color:var(--amber-hot);text-decoration-color:var(--amber-hot);outline:none}
+.sources{margin-top:56px;padding-top:26px;border-top:1px solid var(--line)}
+.sources h2{font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);margin:0 0 14px;font-weight:500}
+.sources ol{margin:0;padding-left:20px;color:var(--dim);font-size:13.5px;line-height:1.7}
+.sources li{margin-bottom:8px}
+.foot{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.foot span,.foot a{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase;text-decoration:none}
+.foot a:hover{color:var(--amber)}
+@media (max-width:460px){.wrap{padding:40px 18px 60px}body{font-size:16px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="back" href="../#research">&larr; Lucas Wesson</a>
+
+  <p class="kicker">// Research · Methodology</p>
+  <h1>The bug was real. My first explanation wasn't.</h1>
+  <p class="dek">A CAPTCHA bypass I reported held up. My first account of why it worked did not. Disproving my own explanation was the actual work.</p>
+  <div class="byline">Lucas Wesson · September 2026</div>
+
+  <p>Testing a web form under an authorized disclosure program, I found a CAPTCHA that did not stop automation. The finding was correct and it was accepted. The interesting part, and the reason I am writing it down, is that the first explanation I wrote for <em>why</em> it worked was wrong, and I only caught it because I went looking for a way to prove myself wrong.</p>
+  <p>This is a small bug. I am not using it to claim a scalp. I am using it because it is a clean example of the thing I think actually separates a useful security report from a noisy one, and it is the same discipline whether a human wrote the report or a model did.</p>
+
+  <h2>The finding at first glance</h2>
+  <p>The form protected itself with a five character image challenge, and the expected answer was recoverable from the page that served the form. From there the write-it-up reflex is immediate: <strong>the answer is in the source, so the check must be in the browser, so validation is client-side only and the CAPTCHA is trivially bypassable.</strong> That is what I wrote in the first draft. It reads well. A scanner would flag it the same way, and so would a model asked to triage the page.</p>
+  <p>It was also not quite true.</p>
+
+  <h2>The test that changed the report</h2>
+  <p>Before sending anything, I ran the check I try to run on every finding: assume my explanation is wrong and look for the one observation that would disprove it. If validation really happened only in the browser, a submission that never touched the browser should be accepted no matter what answer it carried. So I tested that assumption directly, with a deliberately wrong value.</p>
+  <p>The server rejected it.</p>
+  <blockquote>One deliberately wrong answer, refused by the server, killed my first explanation. The server <strong>was</strong> validating.</blockquote>
+  <p>So the browser-only story was false. Had I shipped the first draft, a triager could have poked one wrong value at it, watched it get rejected, and closed the whole thing as not reproducible. The finding would have been real and I would have lost it on a bad explanation.</p>
+
+  <h2>What was actually wrong</h2>
+  <p>The correct account is narrower and worse. The server did validate the answer, but the value it checked against was disclosed to the client in the same exchange that posed the challenge. The check was real; the secret it depended on was handed to the untrusted party in the same breath it was demanded back. I will leave the mechanics there, since the specific target is still in disclosure. The class is what matters.</p>
+  <p>That class is a recognized one, not a clever trick. MITRE catalogs it as <a href="#s1">CWE-602, Client-Side Enforcement of Server-Side Security</a>: the enforcement decision relies on data the application itself surrenders to the client.<a href="#s1">[1]</a> The point of a challenge like this is to be something an automated client cannot produce on its own; once the expected answer reaches that client, the only property that made it a control is gone.<a href="#s2">[2]</a> The fix is equally boring: keep the answer on the server, send the client an image or an opaque reference, and compare on submission.</p>
+
+  <h2>Why the correction is the whole job</h2>
+  <p>Two reports could have come out of this. The first: <em>client-side CAPTCHA, validated in the browser, trivially bypassable.</em> Confident, wrong in its mechanism, and easy to disprove in one request. The second: <em>the server validates, but against a value it discloses in the same response, so an automated client passes the check every time.</em> Less dramatic, precise, and it survives the first person who tries to break it.</p>
+  <p>The distance between those two reports is not more scanning or more findings. It is one negative control I ran against my own claim before trusting it. That is the part I have come to think of as the real deliverable.</p>
+  <p>It matters more now, not less. When a report costs seconds to generate, the format is free and the confidence is free. A generated triage of that page would very plausibly have produced my <em>first</em> explanation: answer in source, check in browser, client-side, bypassable. Fluent, and wrong in the same way I was, for the same reason. The scarce skill is not producing the paragraph. It is being able to disprove your own paragraph, and knowing which observation would do it.</p>
+  <p>That is the same skill I use evaluating model output for a living: the answer that reads as correct is not the finished work. Checking whether it is <em>actually</em> correct is. A CAPTCHA that grades its own answer key is just a small, honest reminder of where the value is.</p>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li id="s1">CWE-602: Client-Side Enforcement of Server-Side Security, MITRE. <a href="https://cwe.mitre.org/data/definitions/602.html" target="_blank" rel="noopener">Link</a></li>
+      <li id="s2">Blocking Brute Force Attacks (CAPTCHA as an anti-automation control), OWASP. <a href="https://community.owasp.org/controls/Blocking_Brute_Force_Attacks" target="_blank" rel="noopener">Link</a></li>
+    </ol>
+  </section>
+
+  <div class="foot">
+    <a href="../#research">&larr; Back to the console</a>
+    <span>© 2026 Lucas Wesson</span>
+  </div>
+</main>
+</body>
+</html>

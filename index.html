@@ -60,74 +60,9 @@ body{
 }
 
 /* ---------- ambient background ---------- */
-.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;perspective:5200px}
-
-/* three depth planes: far is soft, cool and slow, near is sharp, bright and quick */
-.ring-layer{
-  position:absolute;top:50%;left:50%;
-  mix-blend-mode:screen;will-change:transform;
-}
-.ring-layer .strand{mix-blend-mode:screen}
-.layer-far{width:178vmax;height:178vmax;opacity:.5;transform:translate(-50%,-50%) rotateX(70deg);animation:orbitFar 470s linear infinite}
-.layer-mid{width:138vmax;height:138vmax;opacity:.8;transform:translate(-50%,-50%) rotateX(59deg);animation:orbitMid 330s linear infinite reverse}
-.layer-near{width:106vmax;height:106vmax;opacity:1;transform:translate(-50%,-50%) rotateX(47deg);animation:orbitNear 225s linear infinite}
-@keyframes orbitFar{
-  from{transform:translate(-50%,-50%) rotateX(70deg) rotateZ(0deg)}
-  to{transform:translate(-50%,-50%) rotateX(70deg) rotateZ(360deg)}
-}
-@keyframes orbitMid{
-  from{transform:translate(-50%,-50%) rotateX(59deg) rotateZ(0deg)}
-  to{transform:translate(-50%,-50%) rotateX(59deg) rotateZ(360deg)}
-}
-@keyframes orbitNear{
-  from{transform:translate(-50%,-50%) rotateX(47deg) rotateZ(0deg)}
-  to{transform:translate(-50%,-50%) rotateX(47deg) rotateZ(360deg)}
-}
-.stars{
-  position:absolute;inset:0;
-  background-repeat:no-repeat;
-  animation:driftA 300s ease-in-out infinite alternate;
-  background-image:
-    radial-gradient(1.6px 1.6px at 45.4% 55.7%,rgba(214,226,255,0.73),transparent),
-    radial-gradient(1px 1px at 46.7% 50.8%,rgba(214,226,255,0.38),transparent),
-    radial-gradient(1px 1px at 19.7% 51.1%,rgba(214,226,255,0.4),transparent),
-    radial-gradient(1px 1px at 78.1% 11.0%,rgba(214,226,255,0.3),transparent),
-    radial-gradient(1px 1px at 10.7% 79.7%,rgba(214,226,255,0.41),transparent),
-    radial-gradient(1px 1px at 6.0% 96.3%,rgba(214,226,255,0.49),transparent),
-    radial-gradient(1px 1px at 64.8% 61.1%,rgba(214,226,255,0.26),transparent),
-    radial-gradient(1.6px 1.6px at 3.4% 52.7%,rgba(214,226,255,0.51),transparent),
-    radial-gradient(1px 1px at 20.3% 25.2%,rgba(214,226,255,0.23),transparent),
-    radial-gradient(1px 1px at 46.5% 44.3%,rgba(214,226,255,0.46),transparent),
-    radial-gradient(1px 1px at 51.8% 63.5%,rgba(214,226,255,0.36),transparent),
-    radial-gradient(1px 1px at 65.6% 45.9%,rgba(214,226,255,0.3),transparent),
-    radial-gradient(1px 1px at 97.8% 97.6%,rgba(214,226,255,0.46),transparent),
-    radial-gradient(1px 1px at 69.9% 32.3%,rgba(214,226,255,0.28),transparent),
-    radial-gradient(1.6px 1.6px at 29.7% 8.7%,rgba(214,226,255,0.69),transparent),
-    radial-gradient(1px 1px at 40.4% 83.3%,rgba(214,226,255,0.33),transparent),
-    radial-gradient(1px 1px at 94.0% 83.3%,rgba(214,226,255,0.22),transparent),
-    radial-gradient(1px 1px at 22.1% 89.4%,rgba(214,226,255,0.35),transparent),
-    radial-gradient(1px 1px at 96.1% 40.2%,rgba(214,226,255,0.24),transparent),
-    radial-gradient(1px 1px at 62.4% 76.7%,rgba(214,226,255,0.3),transparent),
-    radial-gradient(1px 1px at 10.4% 33.9%,rgba(214,226,255,0.49),transparent),
-    radial-gradient(1.6px 1.6px at 74.8% 13.3%,rgba(214,226,255,0.56),transparent),
-    radial-gradient(1px 1px at 11.7% 7.7%,rgba(214,226,255,0.44),transparent),
-    radial-gradient(1px 1px at 19.1% 55.7%,rgba(214,226,255,0.35),transparent),
-    radial-gradient(1px 1px at 20.3% 72.3%,rgba(214,226,255,0.26),transparent),
-    radial-gradient(1px 1px at 63.8% 13.2%,rgba(214,226,255,0.34),transparent);
-}
-.stars-near{
-  animation:driftB 190s ease-in-out infinite alternate;
-  background-repeat:no-repeat;
-  background-image:
-    radial-gradient(2px 2px at 8.5% 18%,rgba(226,236,255,.85),transparent),
-    radial-gradient(1.8px 1.8px at 88% 26%,rgba(210,228,255,.7),transparent),
-    radial-gradient(2.2px 2.2px at 71% 88%,rgba(232,240,255,.8),transparent),
-    radial-gradient(1.8px 1.8px at 25% 70%,rgba(208,226,255,.62),transparent),
-    radial-gradient(2px 2px at 54% 15%,rgba(226,236,255,.6),transparent),
-    radial-gradient(1.8px 1.8px at 36% 40%,rgba(214,230,255,.55),transparent);
-}
-@keyframes driftA{from{transform:translate3d(0,0,0)}to{transform:translate3d(-1.4vw,.9vh,0)}}
-@keyframes driftB{from{transform:translate3d(0,0,0)}to{transform:translate3d(-3.6vw,2.2vh,0)}}
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+/* one canvas holds the whole sky: stars, the sun, orbits, planets, the odd meteor */
+.sky{position:absolute;inset:0;width:100%;height:100%;display:block}
 .veil{
   position:absolute;inset:0;
   background:
@@ -252,7 +187,7 @@ body{
 .plate{text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
 .wordmark{font-family:var(--mono);font-weight:500;font-size:clamp(15px,2.4vw,21px);letter-spacing:.42em;text-indent:.42em;margin:0;color:var(--text)}
 .sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.28em;color:var(--dim);margin:0;text-transform:uppercase}
-.hint{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--dim);margin:0;opacity:.75}
+.hint{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--dim);margin:0}
 .hint b{color:var(--amber);font-weight:400}
 
 /* ---------- the console bar ---------- */
@@ -303,8 +238,8 @@ body{
   transition:color .4s var(--ease),text-shadow .4s var(--ease);
 }
 .meta{
-  font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--dim);text-align:center;line-height:1.6;margin-top:-6px;opacity:.75;
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--dim);text-align:center;line-height:1.6;margin-top:-6px;
   transition:color .4s var(--ease),opacity .4s var(--ease);
 }
 .item:hover .label{color:var(--amber);text-shadow:0 0 18px var(--halo)}
@@ -362,6 +297,8 @@ body{
 .panel.is-open .panel-inner>*:nth-child(4){transition-delay:.32s}
 .panel.is-open .panel-inner>*:nth-child(5){transition-delay:.38s}
 .panel.is-open .panel-inner>*:nth-child(6){transition-delay:.44s}
+.panel.is-open .panel-inner>*:nth-child(n+7){transition-delay:.5s}
+.kicker.sub{margin-top:40px;padding-top:26px;border-top:1px solid var(--line)}
 
 /* ---------- panel typography ---------- */
 .kicker{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--amber);text-transform:uppercase;margin:0 0 14px}
@@ -387,6 +324,9 @@ body{
 .entries p{font-size:14px;margin:0 0 10px}
 .stack{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);padding:4px 8px}
+.entry-link{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);text-decoration:none;border-bottom:1px solid rgba(240,188,85,.35);padding-bottom:2px;transition:color .3s var(--ease),border-color .3s var(--ease)}
+.entry-link+.entry-link{margin-left:18px}
+.entry-link:hover,.entry-link:focus-visible{color:var(--amber-hot);border-color:var(--amber-hot);outline:none}
 
 .practice{padding:20px 0;border-top:1px solid var(--line)}
 .practice:last-of-type{border-bottom:1px solid var(--line)}
@@ -403,9 +343,11 @@ body{
 .plainlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px;font-size:13.5px;color:var(--mid)}
 .plainlist li{display:flex;gap:9px;align-items:baseline}
 .plainlist li::before{content:"";width:4px;height:4px;flex:none;background:var(--amber);opacity:.6;transform:translateY(-2px)}
-.plainlist .yr{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--dim)}
+.plainlist li:has(.yr){flex-wrap:wrap;row-gap:2px}
+.plainlist .yr{flex-basis:100%;padding-left:13px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--dim)}
 
 .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.panel .links+.term{margin-top:28px}
 .links a{
   font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--mid);text-decoration:none;border:1px solid var(--line);padding:11px 17px;
@@ -466,6 +408,13 @@ body{
 }
 </style>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Lucas Wesson","url":"https://lwesson.github.io/",
+"jobTitle":"AI and security practitioner","description":"Trains AI systems, tests them adversarially, and builds the tooling that keeps them honest.",
+"address":{"@type":"PostalAddress","addressLocality":"Bremerton","addressRegion":"WA","addressCountry":"US"},
+"knowsAbout":["AI evaluation","AI red teaming","Offensive security","Vulnerability research","Security automation"],
+"sameAs":["https://www.linkedin.com/in/lukewesson","https://github.com/Lwesson"]}
+</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -478,48 +427,9 @@ body{
 </svg>
 
 <div class="bg" aria-hidden="true">
-  <div class="stars"></div>
-  <div class="stars stars-near"></div>
   <div class="glowfield"></div>
-  <svg class="ring-layer layer-far" viewBox="0 0 1200 1200" fill="none" shape-rendering="geometricPrecision">
-    <defs>
-      <linearGradient id="glowF" gradientUnits="userSpaceOnUse" x1="70" y1="110" x2="1130" y2="1090"><stop offset="0" stop-color="#6f7fd8" stop-opacity="0"/><stop offset=".34" stop-color="#8e9cf0" stop-opacity=".9"/><stop offset=".66" stop-color="#6f7fd8" stop-opacity=".45"/><stop offset="1" stop-color="#6f7fd8" stop-opacity="0"/></linearGradient>
-      <circle id="F-r0" cx="600" cy="600" r="565"/>
-      <circle id="F-r1" cx="600" cy="600" r="450"/>
-      <circle id="F-r2" cx="600" cy="600" r="330"/>
-    </defs>
-      <g class="strand"><use href="#F-r0" stroke="url(#glowF)" stroke-width="9" opacity=".11"/><use href="#F-r0" stroke="url(#glowF)" stroke-width="3" opacity=".17"/></g>
-      <g class="strand"><use href="#F-r1" stroke="url(#glowF)" stroke-width="9" opacity=".11"/><use href="#F-r1" stroke="url(#glowF)" stroke-width="3" opacity=".17"/></g>
-      <g class="strand"><use href="#F-r2" stroke="url(#glowF)" stroke-width="9" opacity=".11"/><use href="#F-r2" stroke="url(#glowF)" stroke-width="3" opacity=".17"/></g>
-  </svg>
-  <svg class="ring-layer layer-mid" viewBox="0 0 1200 1200" fill="none" shape-rendering="geometricPrecision">
-    <defs>
-      <linearGradient id="glowM" gradientUnits="userSpaceOnUse" x1="70" y1="110" x2="1130" y2="1090"><stop offset="0" stop-color="#5f8cff" stop-opacity="0"/><stop offset=".32" stop-color="#7ba6ff" stop-opacity="1"/><stop offset=".62" stop-color="#5f8cff" stop-opacity=".5"/><stop offset="1" stop-color="#5f8cff" stop-opacity="0"/></linearGradient>
-      <linearGradient id="coreM" gradientUnits="userSpaceOnUse" x1="70" y1="110" x2="1130" y2="1090"><stop offset=".08" stop-color="#eaf3ff" stop-opacity="0"/><stop offset=".34" stop-color="#f6faff" stop-opacity="1"/><stop offset=".54" stop-color="#dbe9ff" stop-opacity=".7"/><stop offset=".84" stop-color="#9dc0ff" stop-opacity="0"/></linearGradient>
-      <circle id="M-r0" cx="600" cy="600" r="520"/>
-      <circle id="M-r1" cx="600" cy="600" r="400"/>
-      <circle id="M-r2" cx="600" cy="600" r="285"/>
-    </defs>
-      <g class="strand"><use href="#M-r0" stroke="url(#glowM)" stroke-width="7" opacity=".09"/><use href="#M-r0" stroke="url(#glowM)" stroke-width="2.2" opacity=".2"/><use href="#M-r0" stroke="url(#coreM)" stroke-width=".6" opacity=".92"/></g>
-      <g class="strand"><use href="#M-r1" stroke="url(#glowM)" stroke-width="7" opacity=".09"/><use href="#M-r1" stroke="url(#glowM)" stroke-width="2.2" opacity=".2"/><use href="#M-r1" stroke="url(#coreM)" stroke-width=".6" opacity=".92"/></g>
-      <g class="strand"><use href="#M-r2" stroke="url(#glowM)" stroke-width="7" opacity=".09"/><use href="#M-r2" stroke="url(#glowM)" stroke-width="2.2" opacity=".2"/><use href="#M-r2" stroke="url(#coreM)" stroke-width=".6" opacity=".92"/></g>
-  </svg>
-  <svg class="ring-layer layer-near" viewBox="0 0 1200 1200" fill="none" shape-rendering="geometricPrecision">
-    <defs>
-      <linearGradient id="glowN" gradientUnits="userSpaceOnUse" x1="70" y1="110" x2="1130" y2="1090"><stop offset="0" stop-color="#8fb6ff" stop-opacity="0"/><stop offset=".3" stop-color="#a9c6ff" stop-opacity="1"/><stop offset=".6" stop-color="#7fa8ff" stop-opacity=".5"/><stop offset="1" stop-color="#7fa8ff" stop-opacity="0"/></linearGradient>
-      <linearGradient id="coreN" gradientUnits="userSpaceOnUse" x1="70" y1="110" x2="1130" y2="1090"><stop offset=".06" stop-color="#ffffff" stop-opacity="0"/><stop offset=".32" stop-color="#ffffff" stop-opacity="1"/><stop offset=".52" stop-color="#e6f0ff" stop-opacity=".75"/><stop offset=".82" stop-color="#b7d2ff" stop-opacity="0"/></linearGradient>
-      <circle id="N-r0" cx="600" cy="600" r="545"/>
-      <circle id="N-r1" cx="600" cy="600" r="350"/>
-      <path id="N-l0" d="M70 240 L1130 940"/>
-      <path id="N-l1" d="M70 940 L1130 240"/>
-    </defs>
-      <g class="strand"><use href="#N-r0" stroke="url(#glowN)" stroke-width="6" opacity=".085"/><use href="#N-r0" stroke="url(#glowN)" stroke-width="1.8" opacity=".2"/><use href="#N-r0" stroke="url(#coreN)" stroke-width=".5" opacity="1"/></g>
-      <g class="strand"><use href="#N-r1" stroke="url(#glowN)" stroke-width="6" opacity=".085"/><use href="#N-r1" stroke="url(#glowN)" stroke-width="1.8" opacity=".2"/><use href="#N-r1" stroke="url(#coreN)" stroke-width=".5" opacity="1"/></g>
-      <g class="strand"><use href="#N-l0" stroke="url(#glowN)" stroke-width="6" opacity=".085"/><use href="#N-l0" stroke="url(#glowN)" stroke-width="1.8" opacity=".2"/><use href="#N-l0" stroke="url(#coreN)" stroke-width=".5" opacity="1"/></g>
-      <g class="strand"><use href="#N-l1" stroke="url(#glowN)" stroke-width="6" opacity=".085"/><use href="#N-l1" stroke="url(#glowN)" stroke-width="1.8" opacity=".2"/><use href="#N-l1" stroke="url(#coreN)" stroke-width=".5" opacity="1"/></g>
-  </svg>
   <div class="veil"></div>
-</div>
+  <canvas class="sky" id="sky"></canvas>
 </div>
 
 <div class="rail l">
@@ -532,12 +442,12 @@ body{
   </div>
 </div>
 
-<div class="clock"><span class="pip"></span><span id="clock-time">--:--:--</span> <span>PST</span></div>
+<div class="clock"><span class="pip"></span><span id="clock-time">--:--:--</span> <span id="clock-tz">PT</span></div>
 
 <main class="shell">
   <header class="plate">
     <h1 class="wordmark">LUCAS WESSON</h1>
-    <p class="sub">AI + Security &nbsp;·&nbsp; Bremerton, WA &nbsp;·&nbsp; PST</p>
+    <p class="sub">AI + Security &nbsp;·&nbsp; Bremerton, WA &nbsp;·&nbsp; Pacific time</p>
     <p class="hint" id="hint">Everything is behind this button.</p>
     <div class="trigger-wrap">
       <button class="trigger invite" id="trigger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the console">
@@ -563,7 +473,13 @@ body{
         <span class="drop" aria-hidden="true"></span>
         <span class="node"><svg aria-hidden="true"><use href="#star"/></svg></span>
         <span class="label">Work</span>
-        <span class="meta">4 projects</span>
+        <span class="meta">6 projects</span>
+      </button>
+      <button class="item" type="button" data-panel="p-research" aria-expanded="false" aria-controls="p-research">
+        <span class="drop" aria-hidden="true"></span>
+        <span class="node"><svg aria-hidden="true"><use href="#star"/></svg></span>
+        <span class="label">Research</span>
+        <span class="meta">3 write-ups</span>
       </button>
       <button class="item" type="button" data-panel="p-discipline" aria-expanded="false" aria-controls="p-discipline">
         <span class="drop" aria-hidden="true"></span>
@@ -575,19 +491,13 @@ body{
         <span class="drop" aria-hidden="true"></span>
         <span class="node"><svg aria-hidden="true"><use href="#star"/></svg></span>
         <span class="label">About</span>
-        <span class="meta">The throughline</span>
-      </button>
-      <button class="item" type="button" data-panel="p-credentials" aria-expanded="false" aria-controls="p-credentials">
-        <span class="drop" aria-hidden="true"></span>
-        <span class="node"><svg aria-hidden="true"><use href="#star"/></svg></span>
-        <span class="label">Credentials</span>
-        <span class="meta">2 degrees · 6 certs</span>
+        <span class="meta">Story · 7 certs</span>
       </button>
       <button class="item" type="button" data-panel="p-contact" aria-expanded="false" aria-controls="p-contact">
         <span class="drop" aria-hidden="true"></span>
         <span class="node"><svg aria-hidden="true"><use href="#star"/></svg></span>
         <span class="label">Contact</span>
-        <span class="meta">Bremerton · PST</span>
+        <span class="meta">Bremerton · Pacific</span>
       </button>
     </div>
 
@@ -600,10 +510,15 @@ body{
           <p>Model evaluation and red-teaming, offensive security research, and AI-augmented security engineering. Three disciplines most people split into separate careers, held together by one throughline: <strong>honest evaluation</strong>.</p>
           <dl class="fields">
             <div class="field"><dt>Focus</dt><dd>Artificial intelligence · Security</dd></div>
-            <div class="field"><dt>Location</dt><dd>Bremerton, WA · PST</dd></div>
+            <div class="field"><dt>Location</dt><dd>Bremerton, WA · Pacific time</dd></div>
             <div class="field"><dt>Current</dt><dd>AI Consultant · Vulnerability Researcher</dd></div>
             <div class="field"><dt>Status</dt><dd>U.S. Citizen · Open to work</dd></div>
           </dl>
+          <div class="links">
+            <a href="#research" data-jump="p-research">Research · 3 write-ups</a>
+            <a href="#work" data-jump="p-work">Work · 6 projects</a>
+            <a href="https://github.com/Lwesson/ttb-label-verifier" target="_blank" rel="noopener">TTB verifier code ↗</a>
+          </div>
           <p class="term">&gt; train &gt; attack &gt; build<span class="caret"></span></p>
         </div>
       </section>
@@ -612,12 +527,32 @@ body{
         <div class="panel-inner">
           <p class="kicker">// Selected projects</p>
           <p class="lede">Systems I have built, and competitions I have placed in.</p>
-          <p>Client and program names are withheld for confidentiality, so these write-ups describe capability and approach only.</p>
+          <p>Client and program names are withheld for confidentiality, so these describe capability and approach. Where the code can be public, it is linked.</p>
           <ul class="entries">
             <li>
+              <div class="entry-top"><h3>TTB Label Verifier</h3><span class="tag">AI Product</span></div>
+              <p>An AI-assisted compliance tool built as a federal take-home. It reads an alcohol label photo, compares every mandatory field to the application, and checks the government health warning against 27 CFR part 16, in under five seconds per label or hundreds at a time in a batch. Uncertain reads land in Review or Unreadable, so a person decides the hard cases instead of the model guessing.</p>
+              <p>I benchmarked two vision models on a 15-label test set and shipped the smaller one. Both scored 14 of 15, but the smaller model was faster and transcribed text verbatim, while the larger one silently corrected capitalization that the regulation depends on. 115 automated tests.</p>
+              <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">Claude Vision</span><span class="chip">27 CFR</span></div>
+              <a class="entry-link" href="https://github.com/Lwesson/ttb-label-verifier" target="_blank" rel="noopener">Code on GitHub ↗</a>
+            </li>
+            <li>
+              <div class="entry-top"><h3>Cold Open, a daily security puzzle</h3><span class="tag">Game</span></div>
+              <p>Three generated challenges a day, in cipher breaking, log forensics, and network traffic analysis, about five minutes in all. Each day's set is derived from the date, so every player gets the same puzzles with no server behind it, and there is no answer key to look up, only the method. After every puzzle, solved or missed, it explains the technique and where it shows up in real incidents.</p>
+              <p>Every puzzle has exactly one defensible answer, and the test suite enforces that, along with every claim a hint makes about the puzzle. A generator that lets a harmless row pass for a second incident marks a correct analyst wrong. 44 automated tests.</p>
+              <div class="stack"><span class="chip">JavaScript</span><span class="chip">Game Design</span><span class="chip">Cryptography</span><span class="chip">Log Forensics</span><span class="chip">Network Analysis</span></div>
+              <a class="entry-link" href="https://lwesson.github.io/cold-open/" target="_blank" rel="noopener">Play it ↗</a>
+              <a class="entry-link" href="https://github.com/Lwesson/cold-open" target="_blank" rel="noopener">Code on GitHub ↗</a>
+            </li>
+            <li>
               <div class="entry-top"><h3>AI-Augmented Security Testing Platform</h3><span class="tag">Platform</span></div>
-              <p>A phase-driven testing pipeline that brings LLM reasoning into attack-surface mapping, finding triage, and vulnerability-chain analysis. Orchestrates security tooling as controlled subprocesses with scope-aware guardrails that enforce rules of engagement at every stage.</p>
+              <p>A seven-phase testing pipeline that brings LLM reasoning into attack-surface mapping, finding triage, and vulnerability-chain analysis. The model analyzes and drafts. Any action that changes state on a target waits for my approval, and scope guardrails enforce each program's rules of engagement at every stage. 357 automated tests. Kept private because it runs against live programs.</p>
               <div class="stack"><span class="chip">Python</span><span class="chip">LLM APIs</span><span class="chip">Security Automation</span><span class="chip">Kali Linux</span></div>
+            </li>
+            <li>
+              <div class="entry-top"><h3>CyberQuest 2026, ICS/SCADA CTF</h3><span class="tag">Competition</span></div>
+              <p>13th place nationally at 96.55 percent (28 of 29). Industrial network forensics across six packet captures, reconstructing a full attack chain from first reconnaissance through to control-system traffic.</p>
+              <div class="stack"><span class="chip">ICS/SCADA</span><span class="chip">Forensics</span><span class="chip">Attack Chains</span></div>
             </li>
             <li>
               <div class="entry-top"><h3>Custom SIEM &amp; Security Operations Dashboard</h3><span class="tag">Detection</span></div>
@@ -626,13 +561,33 @@ body{
             </li>
             <li>
               <div class="entry-top"><h3>Empirical Optimization &amp; Signal Analysis Platform</h3><span class="tag">Data</span></div>
-              <p>A multi-strategy analysis engine with a walk-forward backtesting core, testing thousands of parameter configurations across timeframes under systematic experiment design and automated risk management.</p>
+              <p>A multi-strategy analysis engine built around walk-forward backtesting. It tests large sets of parameter configurations across timeframes, with systematic experiment design and automated risk management.</p>
               <div class="stack"><span class="chip">Python</span><span class="chip">Quant Analysis</span><span class="chip">Data Pipelines</span></div>
             </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel" id="p-research" aria-label="Research">
+        <div class="panel-inner">
+          <p class="kicker">// Research &amp; writing</p>
+          <p class="lede">What the work has taught me, written down.</p>
+          <p>Analysis and methodology from model evaluation and security research. Nothing here discloses an unfixed vulnerability or a confidential program.</p>
+          <ul class="entries">
             <li>
-              <div class="entry-top"><h3>CyberQuest 2026 — ICS/SCADA CTF</h3><span class="tag">Competition</span></div>
-              <p>13th place at 96.55% in a national ICS/SCADA capture-the-flag, performing industrial-control forensics and full attack-chain reconstruction under time pressure.</p>
-              <div class="stack"><span class="chip">ICS/SCADA</span><span class="chip">Forensics</span><span class="chip">Attack Chains</span></div>
+              <div class="entry-top"><h3>Finding is getting cheap. Validation is the product.</h3><span class="tag">Sep 2026</span></div>
+              <p>AI is flooding security with findings. The value is moving to whoever can tell which ones are real.</p>
+              <a class="entry-link" href="research/validation-is-the-product.html">Read the piece</a>
+            </li>
+            <li>
+              <div class="entry-top"><h3>The bug was real. My first explanation wasn't.</h3><span class="tag">Apr 2026</span></div>
+              <p>A CAPTCHA bypass I reported held up. My first account of why it worked did not. Disproving my own explanation was the actual work.</p>
+              <a class="entry-link" href="research/the-bug-was-real-my-first-explanation-wasnt.html">Read the piece</a>
+            </li>
+            <li>
+              <div class="entry-top"><h3>The AI is trusted. That's the vulnerability.</h3><span class="tag">Apr 2026</span></div>
+              <p>Indirect prompt injection in AI support tools isn't one bug. It's a family, sorted by whose trust the model is laundering.</p>
+              <a class="entry-link" href="research/the-ai-is-trusted-thats-the-vulnerability.html">Read the piece</a>
             </li>
           </ul>
         </div>
@@ -662,47 +617,42 @@ body{
         <div class="panel-inner">
           <p class="kicker">// The throughline</p>
           <p class="lede">Train it, attack it, build it.</p>
-          <p>I work at an intersection that usually gets split apart, and the seam between those disciplines is where I do my best work. At xAI and OpenAI I have spent thousands of hours evaluating model outputs across text, image, and video, reaching the highest quality tier and building a working map of how these systems fail. As an independent researcher I turn that understanding on live systems, finding and reporting real vulnerabilities.</p>
+          <p>I work at an intersection that usually gets split apart, and the seam between those disciplines is where I do my best work. At xAI and OpenAI I have spent thousands of hours evaluating model outputs across text, image, and video, reaching the highest quality tier and building a working map of how these systems fail. As an independent researcher I turn that understanding on live systems, finding and reporting real vulnerabilities, and I consult as a paid subject-matter expert on AI and security for investment research.</p>
           <p>What connects all three is honest evaluation. On the training side, every shortcut in judgment compounds into model behavior. On the attack side, most "secure" AI is only secure against the demos its team ran. On the build side, honesty has to be a structural property of the system, not a vibe.</p>
-          <p>Before AI and security, I spent years behind the camera and leading creative work: assistant photographer, freelance photojournalist, then creative director at Home Depot planning and shooting editorial and program photography. Photojournalism and creative direction are both disciplines of honest evaluation, documenting what is actually there and judging whether work holds up rather than whether it impresses. Different medium, same throughline.</p>
+          <p>Before AI and security, I spent years behind the camera and leading creative work: assistant photographer, freelance photojournalist, then creative director of my own practice, planning and shooting editorial and program photography for clients including Home Depot. Photojournalism and creative direction are both disciplines of honest evaluation, documenting what is actually there and judging whether work holds up rather than whether it impresses. Different medium, same throughline.</p>
           <div class="stack">
-            <span class="chip">Home Depot</span><span class="chip">Johnson &amp; Johnson</span><span class="chip">HTC</span><span class="chip">Washington State University</span><span class="chip">Olympic College Foundation</span><span class="chip">Kitsap Sun</span><span class="chip">U.S. Navy &amp; Air Force</span>
+            <span class="chip">Home Depot</span><span class="chip">Johnson &amp; Johnson</span><span class="chip">HTC</span><span class="chip">Washington State University</span><span class="chip">Olympic College Foundation</span><span class="chip">Kitsap Sun</span>
           </div>
-        </div>
-      </section>
-
-      <section class="panel" id="p-credentials" aria-label="Credentials">
-        <div class="panel-inner">
-          <p class="kicker">// Certifications &amp; education</p>
-          <p class="lede">Measured, not asserted.</p>
+          <p class="kicker sub">// Certifications &amp; education</p>
           <div class="stats">
             <div class="stat"><b>96.55%</b><span>CyberQuest 2026</span></div>
             <div class="stat"><b>13th</b><span>National placement</span></div>
             <div class="stat"><b>2</b><span>IT degrees</span></div>
-            <div class="stat"><b>6+</b><span>Certifications</span></div>
+            <div class="stat"><b>7</b><span>Certifications</span></div>
           </div>
           <div class="cols">
             <div>
               <h4>Certifications</h4>
               <ul class="plainlist">
-                <li>CCNA — Cisco</li>
+                <li>CCNA, Cisco</li>
                 <li>Google Cybersecurity Professional</li>
                 <li>TestOut Security Pro</li>
                 <li>TestOut Linux Pro</li>
                 <li>TestOut Network Pro</li>
-                <li>TestOut Office Pro</li>
+                <li>TestOut Routing and Switching Pro</li>
+                <li>TestOut Pro Certified: Microsoft Office Essentials</li>
               </ul>
             </div>
             <div>
               <h4>Education</h4>
               <ul class="plainlist">
-                <li>A.A.S.-T, Information Technology — Security <span class="yr">Olympic College · 2025</span></li>
-                <li>A.A.S.-T, Information Technology — Networking <span class="yr">Olympic College · 2025</span></li>
+                <li>A.A.S.-T, Information Technology, Security <span class="yr">Olympic College · 2025</span></li>
+                <li>A.A.S.-T, Information Technology, Networking <span class="yr">Olympic College · 2025</span></li>
               </ul>
             </div>
           </div>
           <div class="stack">
-            <span class="chip">Python</span><span class="chip">Burp Suite</span><span class="chip">Metasploit</span><span class="chip">Nmap</span><span class="chip">Wireshark</span><span class="chip">Nuclei</span><span class="chip">Splunk</span><span class="chip">Nessus</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">NIST RMF</span>
+            <span class="chip">Python</span><span class="chip">Burp Suite</span><span class="chip">Metasploit</span><span class="chip">Nmap</span><span class="chip">Wireshark</span><span class="chip">Nuclei</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">NIST RMF</span>
           </div>
         </div>
       </section>
@@ -711,7 +661,7 @@ body{
         <div class="panel-inner">
           <p class="kicker">// Open channel</p>
           <p class="lede">Let's build systems that hold under real adversaries.</p>
-          <p>Available for AI and security roles and select projects. Reach me on LinkedIn, or read the code on GitHub.</p>
+          <p>Available for AI and security roles, expert consultations, and select projects. Reach me on LinkedIn, or read the code on GitHub.</p>
           <form class="cform" id="contactForm" novalidate>
             <input type="hidden" name="access_key" value="571b5680-3733-459e-8874-7832355801f2">
             <input type="hidden" name="subject" value="New message from your portfolio site">
@@ -744,7 +694,7 @@ body{
 
   <div class="foot">
     <span>© 2026 Lucas Wesson</span>
-    <span>Bremerton, WA · PST</span>
+    <span>Bremerton, WA · Pacific time</span>
   </div>
 </main>
 
@@ -772,6 +722,18 @@ body{
   var timers = [];
 
   function panelFor(item){ return document.getElementById(item.dataset.panel); }
+
+  function itemFromHash(){
+    var id = 'p-' + window.location.hash.slice(1).toLowerCase();
+    return items.filter(function(it){ return it.dataset.panel === id; })[0] || null;
+  }
+  var landing = itemFromHash();
+
+  function setHash(item){
+    if (!window.history || !history.replaceState) return;
+    var url = item ? '#' + item.dataset.panel.slice(2) : window.location.pathname + window.location.search;
+    try { history.replaceState(null, '', url); } catch (e) {}
+  }
 
   function clearMotion(){
     anims.forEach(function(a){ try { a.cancel(); } catch (e) {} });
@@ -910,6 +872,7 @@ body{
     var wasOpen = item.classList.contains('is-open');
     items.forEach(function(it){ if (it.classList.contains('is-open')) closePanel(it); });
     if (!wasOpen) openPanel(item);
+    setHash(wasOpen ? null : item);
     syncStage(reduce);
 
     /* only move the page when the line is actually out of reach */
@@ -1006,7 +969,12 @@ body{
 
     /* once the stations land, the first one opens itself */
     timers.push(window.setTimeout(function(){
-      if (menuOpen && !openItem()){
+      if (!menuOpen || openItem()) return;
+      if (landing){
+        var target = landing;
+        landing = null;
+        select(target);
+      } else {
         openPanel(items[0]);
         syncStage(reduce);
       }
@@ -1020,6 +988,7 @@ body{
     triggerLabel.textContent = INVITE;
     setHint(false);
     items.forEach(function(it){ if (it.classList.contains('is-open')) closePanel(it); });
+    setHash(null);
     syncStage(false);
     cascadeOut(function(){
       if (menuOpen) return;
@@ -1046,18 +1015,32 @@ body{
     if (e.key === 'Escape' && menuOpen) closeMenu();
   });
 
+  function itemById(id){
+    return items.filter(function(it){ return it.dataset.panel === id; })[0] || null;
+  }
+
+  function jump(item){
+    if (!item) return;
+    if (!menuOpen){
+      landing = item;
+      openMenu();
+      return;
+    }
+    if (!item.classList.contains('is-open')) select(item);
+  }
+
   document.querySelectorAll('[data-jump]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var id = btn.getAttribute('data-jump');
-      var item = items.filter(function(it){ return it.dataset.panel === id; })[0];
-      if (!item) return;
-      if (!menuOpen){
-        openMenu();
-        window.setTimeout(function(){ select(item); }, 1000);
-        return;
-      }
-      if (!item.classList.contains('is-open')) select(item);
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      jump(itemById(btn.getAttribute('data-jump')));
     });
+  });
+
+  /* #research, #work and the rest are real addresses, so a link in an
+     application can land a reader on the station it is about */
+  window.addEventListener('hashchange', function(){
+    var item = itemFromHash();
+    if (item) jump(item);
   });
 
   window.addEventListener('resize', function(){
@@ -1085,7 +1068,8 @@ body{
 
   /* the wink is the greeting; the console opens on the beat after it */
   if (!reduce){
-    autoReveal = window.setTimeout(function(){ if (!menuOpen) openMenu(true); }, 2150);
+    /* a deep link skips most of the wait: the reader came for one station */
+    autoReveal = window.setTimeout(function(){ if (!menuOpen) openMenu(true); }, landing ? 1300 : 2150);
   } else {
     openMenu(true);
   }
@@ -1139,18 +1123,548 @@ body{
 
   /* ---------- clock ---------- */
   var timeEl = document.getElementById('clock-time');
+  var tzEl = document.getElementById('clock-tz');
   function tick(){
     try {
-      timeEl.textContent = new Date().toLocaleTimeString('en-US', {
+      var now = new Date();
+      timeEl.textContent = now.toLocaleTimeString('en-US', {
         timeZone: 'America/Los_Angeles', hour12: false,
         hour: '2-digit', minute: '2-digit', second: '2-digit'
       });
+      /* PDT half the year, PST the other half */
+      var tz = now.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', timeZoneName: 'short' }).split(' ').pop();
+      if (/^P[SD]T$/.test(tz)) tzEl.textContent = tz;
     } catch (err) {
       timeEl.textContent = new Date().toTimeString().slice(0, 8);
     }
   }
   tick();
   window.setInterval(tick, 1000);
+})();
+</script>
+
+<script>
+/* ---------- the sky ----------
+   The inner solar system seen from a little above its plane: Mercury, Venus,
+   Earth and its Moon, Mars, then a belt of rubble and a ringed giant. The sun
+   sits in the top left corner where the page's light already came from, and
+   every planet is shaded from the sun's side.
+
+   Everything that never moves (stars, the Milky Way, the zodiacal glow, orbits,
+   the belt, the sun, lens streak and ghosts) is painted once to an offscreen
+   layer. Each frame copies that layer and draws only what moves: sun rays,
+   corona shimmer, twinkles, planets, the Moon, the label and the odd meteor,
+   capped at 30fps. Reduced motion gets one still frame. A hidden tab stops. */
+(function(){
+  var cv = document.getElementById('sky');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  if (!ctx) return;
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var TAU = Math.PI * 2;
+  var TILT = 24 * Math.PI / 180;   /* orbits sweep down and to the right */
+  var FLAT = 0.34;                 /* how far above the plane we look from */
+  /* Orbit sizes are worked out per screen in size(). The inner three are sized
+     to fit entirely on screen, so Mercury, Venus and Earth are always in view
+     and Earth's label never leaves. Mars and the giant swing wide the way the
+     outer planets really do, and come back within a few minutes. */
+  var R = [], BELT = [0, 0];
+  var XE = Math.sqrt(Math.pow(Math.cos(TILT), 2) + Math.pow(FLAT * Math.sin(TILT), 2));
+  var YE = Math.sqrt(Math.pow(Math.sin(TILT), 2) + Math.pow(FLAT * Math.cos(TILT), 2));
+  var PLANETS = [
+    { name: 'mercury', o: 0, r: 2.8, T: 50, lit: '#ece7e2', base: '#8f8780', dark: '#121110' },
+    { name: 'venus', o: 1, r: 4.8, T: 90, lit: '#fff6dc', base: '#d9b87c', dark: '#18120a', haze: 'rgba(255,236,196,.32)' },
+    { name: 'earth', o: 2, r: 6.2, T: 150, lit: '#e3f1ff', base: '#3d7fd8', dark: '#040a1a', atmo: 'rgba(150,200,255,.65)', earth: true },
+    { name: 'mars', o: 3, r: 4.2, T: 240, lit: '#ffdcc6', base: '#c1603b', dark: '#150906' },
+    { name: 'giant', o: 4, r: 11, T: 420, lit: '#fff0d4', base: '#c49a66', dark: '#140e07', bands: true, ring: true }
+  ];
+
+  var W = 0, H = 0, DPR = 1, S = 0, k = 1;
+  var sun = { x: 0, y: 0 };
+  var layer = document.createElement('canvas');
+  var lctx = layer.getContext('2d');
+  var raf = null, last = 0, t0 = performance.now();
+  var meteor = null, nextMeteor = 9000 + Math.random() * 7000;
+
+  /* star positions are generated once in unit space so a resize rescales the
+     same sky instead of reshuffling it */
+  var field = [], band = [], blobs = [], twinkle = [], belt = [], rays = [];
+  (function seed(){
+    var tints = ['214,226,255', '214,226,255', '214,226,255', '255,236,210', '190,208,255'];
+    for (var i = 0; i < 520; i++){
+      var big = Math.random() < 0.06;
+      field.push({ u: Math.random(), v: Math.random(), r: big ? 0.9 + Math.random() * 0.6 : 0.35 + Math.random() * 0.5,
+        a: big ? 0.55 + Math.random() * 0.35 : 0.18 + Math.random() * 0.42, c: tints[(Math.random() * tints.length) | 0] });
+    }
+    for (var j = 0; j < 90; j++){
+      twinkle.push({ u: Math.random(), v: Math.random(), r: 0.7 + Math.random() * 0.7, a: 0.45 + Math.random() * 0.45,
+        c: tints[(Math.random() * tints.length) | 0], ph: Math.random() * TAU, sp: 0.6 + Math.random() * 1.4 });
+    }
+    for (var b = 0; b < 420; b++){
+      band.push({ t: Math.random(), off: (Math.random() + Math.random() + Math.random() - 1.5) * 0.09,
+        r: 0.3 + Math.random() * 0.45, a: 0.12 + Math.random() * 0.3 });
+    }
+    for (var n = 0; n < 24; n++){
+      blobs.push({ t: n / 23 + (Math.random() - 0.5) * 0.04, off: (Math.random() - 0.5) * 0.05,
+        s: 0.06 + Math.random() * 0.07, warm: Math.random() < 0.3 });
+    }
+    for (var a = 0; a < 240; a++){
+      belt.push({ th: Math.random() * TAU, f: Math.random(),
+        r: 0.5 + Math.random() * 0.6, a: 0.14 + Math.random() * 0.26 });
+    }
+    /* rays: uneven lengths and widths, the way light breaks through a lens */
+    for (var q = 0; q < 16; q++){
+      rays.push({ ang: q / 16 * TAU + (Math.random() - 0.5) * 0.3, len: 0.1 + Math.random() * 0.24,
+        w: 0.004 + Math.random() * 0.01, a: 0.03 + Math.random() * 0.035, ph: Math.random() * TAU });
+    }
+    PLANETS.forEach(function(p){ p.th0 = null; });
+  })();
+
+  function bandPoint(t, off){
+    var x0 = -0.05 * W, y0 = 0.82 * H, x1 = 1.05 * W, y1 = 0.16 * H;
+    var dx = x1 - x0, dy = y1 - y0, len = Math.hypot(dx, dy);
+    return { x: x0 + dx * t - dy / len * off * S, y: y0 + dy * t + dx / len * off * S };
+  }
+
+  function orbitOf(a){ return { a: a, b: a * FLAT }; }
+
+  function pos(o, th){
+    var c = Math.cos(th), s = Math.sin(th), ct = Math.cos(TILT), st = Math.sin(TILT);
+    return { x: sun.x + o.a * c * ct - o.b * s * st, y: sun.y + o.a * c * st + o.b * s * ct, depth: s };
+  }
+
+  function onScreen(q, m){ return q.x > m && q.x < W - m && q.y > m && q.y < H - m; }
+
+  /* the text lives in a column down the middle, so the sky keeps that column
+     quiet: 0 at the centre line, 1 once clear of the column */
+  function column(){ return Math.min(W * 0.5, 440); }
+  function clearOfText(x){ return Math.min(1, Math.abs(x - W / 2) / column()); }
+
+  /* start each planet somewhere visible, clear of the sun and the text, and
+     heading along a stretch it will still be visible on a minute from now */
+  function placePlanets(){
+    PLANETS.forEach(function(p){
+      if (p.th0 !== null) return;
+      var o = orbitOf(R[p.o]);
+      var ok = function(q){
+        /* on a phone the text spans the screen, so the edges are the only sky */
+        return onScreen(q, W < 900 ? 24 : 40) && clearOfText(q.x) > (W < 900 ? 0.62 : 0.98);
+      };
+      for (var pass = 0; pass < 2 && p.th0 === null; pass++){
+        for (var i = 0; i < 120; i++){
+          var th = Math.random() * TAU;
+          var later = th + TAU * 60 / p.T;
+          if (ok(pos(o, th)) && (pass === 1 || ok(pos(o, later)))){ p.th0 = th; break; }
+        }
+      }
+      if (p.th0 === null) p.th0 = Math.random() * TAU;
+    });
+  }
+
+  function glow(c, x, y, r, inner){
+    var g = c.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, inner);
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    c.fillStyle = g;
+    c.fillRect(x - r, y - r, r * 2, r * 2);
+  }
+
+  function hexagon(c, x, y, r){
+    c.beginPath();
+    for (var i = 0; i < 6; i++){
+      var a = i / 6 * TAU + 0.3;
+      if (i) c.lineTo(x + Math.cos(a) * r, y + Math.sin(a) * r); else c.moveTo(x + Math.cos(a) * r, y + Math.sin(a) * r);
+    }
+    c.closePath();
+  }
+
+  function paintLayer(){
+    layer.width = Math.max(1, Math.round(W * DPR));
+    layer.height = Math.max(1, Math.round(H * DPR));
+    var c = lctx;
+    c.setTransform(DPR, 0, 0, DPR, 0, 0);
+    c.clearRect(0, 0, W, H);
+
+    /* milky way: soft light first, then its stars */
+    blobs.forEach(function(bl){
+      var p = bandPoint(bl.t, bl.off);
+      glow(c, p.x, p.y, bl.s * S, bl.warm ? 'rgba(235,205,175,.035)' : 'rgba(150,170,235,.045)');
+    });
+    band.forEach(function(st){
+      var p = bandPoint(st.t, st.off);
+      c.fillStyle = 'rgba(220,228,255,' + st.a + ')';
+      c.fillRect(p.x, p.y, st.r * 1.4, st.r * 1.4);
+    });
+
+    /* density follows screen area, so a phone gets a sky, not a snowstorm */
+    var count = Math.max(150, Math.min(field.length, Math.round(W * H / 2400)));
+    field.slice(0, count).forEach(function(st){
+      var x = st.u * W, y = st.v * H;
+      c.fillStyle = 'rgba(' + st.c + ',' + st.a + ')';
+      if (st.r < 0.9){ c.fillRect(x, y, st.r * 1.6, st.r * 1.6); return; }
+      c.beginPath(); c.arc(x, y, st.r, 0, TAU); c.fill();
+      glow(c, x, y, st.r * 5, 'rgba(' + st.c + ',' + st.a * 0.22 + ')');
+      /* the brightest few get a small cross glint */
+      if (st.r > 1.2){
+        var L = st.r * 7;
+        [[1, 0], [0, 1]].forEach(function(d){
+          var g = c.createLinearGradient(x - d[0] * L, y - d[1] * L, x + d[0] * L, y + d[1] * L);
+          g.addColorStop(0, 'rgba(' + st.c + ',0)');
+          g.addColorStop(0.5, 'rgba(' + st.c + ',' + st.a * 0.5 + ')');
+          g.addColorStop(1, 'rgba(' + st.c + ',0)');
+          c.strokeStyle = g; c.lineWidth = 0.7;
+          c.beginPath(); c.moveTo(x - d[0] * L, y - d[1] * L); c.lineTo(x + d[0] * L, y + d[1] * L); c.stroke();
+        });
+      }
+    });
+
+    /* zodiacal light: dust in the orbital plane catching sunlight */
+    c.save();
+    c.translate(sun.x, sun.y); c.rotate(TILT); c.scale(1, FLAT * 0.8);
+    var z = c.createRadialGradient(0, 0, 0, 0, 0, S * 0.62);
+    z.addColorStop(0, 'rgba(255,226,186,.075)');
+    z.addColorStop(0.45, 'rgba(240,210,180,.025)');
+    z.addColorStop(1, 'rgba(0,0,0,0)');
+    c.fillStyle = z;
+    c.fillRect(-S * 0.62, -S * 0.62, S * 1.24, S * 1.24);
+    c.restore();
+
+    /* orbits brighten toward the sun, the way a lit plane would */
+    R.forEach(function(a){
+      var o = orbitOf(a);
+      var g = c.createRadialGradient(sun.x, sun.y, 0, sun.x, sun.y, o.a * 1.05);
+      g.addColorStop(0, 'rgba(190,210,255,.30)');
+      g.addColorStop(0.55, 'rgba(160,185,255,.14)');
+      g.addColorStop(1, 'rgba(140,165,255,.05)');
+      c.strokeStyle = g;
+      c.beginPath(); c.ellipse(sun.x, sun.y, o.a, o.b, TILT, 0, TAU);
+      c.globalAlpha = 0.35; c.lineWidth = 3; c.stroke();
+      c.globalAlpha = 1; c.lineWidth = 1; c.stroke();
+    });
+
+    /* the belt between Mars and the giant */
+    belt.forEach(function(rk){
+      var q = pos(orbitOf(BELT[0] + rk.f * (BELT[1] - BELT[0])), rk.th);
+      c.fillStyle = 'rgba(206,196,180,' + rk.a * (0.7 + 0.3 * q.depth) + ')';
+      c.fillRect(q.x, q.y, rk.r, rk.r);
+    });
+
+    /* quiet the text column: everything painted so far fades toward the middle */
+    var col = column(), mid = W / 2;
+    var fade = c.createLinearGradient(0, 0, W, 0);
+    var edge = function(x){ return Math.max(0, Math.min(1, x / W)); };
+    fade.addColorStop(edge(mid - col), 'rgba(0,0,0,0)');
+    fade.addColorStop(edge(mid - col * 0.55), 'rgba(0,0,0,.45)');
+    fade.addColorStop(0.5, 'rgba(0,0,0,.6)');
+    fade.addColorStop(edge(mid + col * 0.55), 'rgba(0,0,0,.45)');
+    fade.addColorStop(edge(mid + col), 'rgba(0,0,0,0)');
+    c.globalCompositeOperation = 'destination-out';
+    c.fillStyle = fade;
+    c.fillRect(0, 0, W, H);
+    c.globalCompositeOperation = 'source-over';
+
+    /* lens ghosts ride the line from the sun through the middle of the frame,
+       and are skipped wherever they would sit behind text */
+    var vx = W / 2 - sun.x, vy = H / 2 - sun.y;
+    [[0.26, 9, 'rgba(150,205,255,.07)'], [1.85, 30, 'rgba(255,205,160,.045)'], [2.05, 13, 'rgba(190,165,255,.06)']].forEach(function(gh){
+      var x = sun.x + vx * gh[0], y = sun.y + vy * gh[0], r = gh[1] * k;
+      if (!onScreen({ x: x, y: y }, r) || clearOfText(x) < 0.75) return;
+      var g = c.createRadialGradient(x, y, 0, x, y, r);
+      g.addColorStop(0, 'rgba(0,0,0,0)');
+      g.addColorStop(0.7, gh[2]);
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      c.fillStyle = g;
+      hexagon(c, x, y, r); c.fill();
+    });
+
+    /* the sun: a wash, a corona, a hot core */
+    glow(c, sun.x, sun.y, S * 0.5, 'rgba(255,222,176,.06)');
+    glow(c, sun.x, sun.y, 150 * k, 'rgba(255,214,160,.18)');
+    glow(c, sun.x, sun.y, 36 * k, 'rgba(255,240,214,.8)');
+    c.fillStyle = '#fffaf0';
+    c.beginPath(); c.arc(sun.x, sun.y, 3.6 * k, 0, TAU); c.fill();
+
+    /* diffraction spikes, plus one long thin anamorphic streak */
+    [[1, 0, 96], [0, 1, 96], [0.7071, 0.7071, 34], [0.7071, -0.7071, 34]].forEach(function(d){
+      var L = d[2] * k;
+      var g = c.createLinearGradient(sun.x - d[0] * L, sun.y - d[1] * L, sun.x + d[0] * L, sun.y + d[1] * L);
+      g.addColorStop(0, 'rgba(255,240,220,0)');
+      g.addColorStop(0.5, 'rgba(255,240,220,' + (L > 60 * k ? 0.38 : 0.22) + ')');
+      g.addColorStop(1, 'rgba(255,240,220,0)');
+      c.strokeStyle = g; c.lineWidth = 1;
+      c.beginPath(); c.moveTo(sun.x - d[0] * L, sun.y - d[1] * L); c.lineTo(sun.x + d[0] * L, sun.y + d[1] * L); c.stroke();
+    });
+    var sl = Math.min(W * 0.42, 620);
+    var sg = c.createLinearGradient(sun.x - sl * 0.5, 0, sun.x + sl, 0);
+    sg.addColorStop(0, 'rgba(170,200,255,0)');
+    sg.addColorStop(0.33, 'rgba(185,212,255,.2)');
+    sg.addColorStop(1, 'rgba(170,200,255,0)');
+    c.fillStyle = sg;
+    c.fillRect(sun.x - sl * 0.5, sun.y - 0.6, sl * 1.5, 1.2);
+    c.globalAlpha = 0.25;
+    c.fillRect(sun.x - sl * 0.5, sun.y - 2.5, sl * 1.5, 5);
+    c.globalAlpha = 1;
+  }
+
+  /* slowly turning shafts of light, added on top so they brighten what they cross */
+  function drawRays(sec){
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    var spin = still ? 0 : sec * TAU / 900;
+    /* each shard is a sharp core inside two wider, fainter wedges, which is
+       what gives it a soft edge without a blur filter */
+    rays.forEach(function(ry){
+      var a = ry.ang + spin, L = ry.len * S;
+      var alpha = ry.a * (still ? 1 : 0.7 + 0.3 * Math.sin(sec * 0.35 + ry.ph));
+      [[1, 0.55], [2.6, 0.3], [5, 0.16]].forEach(function(pass){
+        var w = ry.w * pass[0], len = L * (1 - pass[0] * 0.06);
+        var g = ctx.createLinearGradient(sun.x, sun.y, sun.x + Math.cos(a) * len, sun.y + Math.sin(a) * len);
+        g.addColorStop(0, 'rgba(255,232,196,' + alpha * pass[1] * 2 + ')');
+        g.addColorStop(0.35, 'rgba(255,232,196,' + alpha * pass[1] + ')');
+        g.addColorStop(1, 'rgba(255,232,196,0)');
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.moveTo(sun.x, sun.y);
+        ctx.lineTo(sun.x + Math.cos(a - w) * len, sun.y + Math.sin(a - w) * len);
+        ctx.lineTo(sun.x + Math.cos(a + w) * len, sun.y + Math.sin(a + w) * len);
+        ctx.closePath(); ctx.fill();
+      });
+    });
+    /* the corona breathes a little */
+    var pulse = still ? 0.1 : 0.1 + 0.04 * Math.sin(sec * 0.7);
+    glow(ctx, sun.x, sun.y, 60 * k, 'rgba(255,226,180,' + pulse + ')');
+    ctx.restore();
+  }
+
+  function ringHalf(q, r, front){
+    ctx.save();
+    ctx.translate(q.x, q.y); ctx.rotate(-0.38);
+    ctx.strokeStyle = 'rgba(232,212,172,.5)';
+    ctx.lineWidth = Math.max(1, r * 0.22);
+    ctx.beginPath();
+    ctx.ellipse(0, 0, r * 2.1, r * 0.55, 0, front ? 0 : Math.PI, front ? Math.PI : TAU);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function sphere(x, y, r, ux, uy, p){
+    var g = ctx.createRadialGradient(x + ux * r * 0.5, y + uy * r * 0.5, r * 0.1, x, y, r * 1.05);
+    g.addColorStop(0, p.lit); g.addColorStop(0.45, p.base); g.addColorStop(1, p.dark);
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
+  }
+
+  /* Earth turns: land and cloud patches slide across the lit face, then the
+     night side is laid back over them */
+  function earthSurface(x, y, r, ux, uy, sec){
+    ctx.save();
+    ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.clip();
+    var spin = still ? 0.8 : sec * TAU / 40;
+    [[0, -0.25, 0.42, 'rgba(96,142,76,.75)'], [2.1, 0.3, 0.34, 'rgba(120,150,84,.7)'], [4.0, -0.05, 0.3, 'rgba(150,130,90,.65)'],
+     [1.0, 0.45, 0.26, 'rgba(245,250,255,.55)'], [3.3, -0.5, 0.3, 'rgba(245,250,255,.5)']].forEach(function(s, i){
+      var a = spin * (i > 2 ? 1.25 : 1) + s[0];
+      var front = Math.cos(a);
+      if (front <= 0) return;
+      ctx.globalAlpha = front;
+      ctx.fillStyle = s[3];
+      ctx.beginPath();
+      ctx.ellipse(x + Math.sin(a) * r * 0.78, y + s[1] * r, r * s[2] * (0.4 + 0.6 * front), r * s[2] * 0.7, 0, 0, TAU);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    var sh = ctx.createRadialGradient(x + ux * r * 0.55, y + uy * r * 0.55, r * 0.2, x, y, r * 1.1);
+    sh.addColorStop(0, 'rgba(0,0,0,0)');
+    sh.addColorStop(0.5, 'rgba(2,6,16,.3)');
+    sh.addColorStop(0.8, 'rgba(2,6,16,.75)');
+    sh.addColorStop(1, 'rgba(2,6,16,.95)');
+    ctx.fillStyle = sh;
+    ctx.fillRect(x - r, y - r, r * 2, r * 2);
+    ctx.restore();
+  }
+
+  function drawMoon(q, r, ux, uy, sec, back){
+    var a = still ? 0.6 : sec * TAU / 27;
+    var s = Math.sin(a);
+    if (back !== (s < 0)) return;
+    var R = r * 2.7, mr = Math.max(1.3, r * 0.27);
+    var mx = q.x + Math.cos(a) * R, my = q.y + s * R * 0.42;
+    sphere(mx, my, mr, ux, uy, { lit: '#f2f0ea', base: '#a09c94', dark: '#141312' });
+  }
+
+  /* The label always sits on the side of Earth facing away from the sun, so it
+     never lands in the glare. If that side has no room, it stacks on two short
+     lines above or below Earth instead, whichever is also away from the sun. */
+  function drawLabel(q, r, alpha){
+    if (alpha < 0.05) return;
+    var txt = 'YOU ARE HERE';
+    ctx.save();
+    ctx.font = '500 8px "Martian Mono", ui-monospace, monospace';
+    if ('letterSpacing' in ctx) ctx.letterSpacing = '2px';
+    ctx.globalAlpha = alpha;
+    ctx.strokeStyle = 'rgba(240,188,85,.6)'; ctx.lineWidth = 0.8;
+    ctx.fillStyle = 'rgba(240,188,85,.92)';
+    ctx.textBaseline = 'middle';
+
+    var tw = ctx.measureText(txt).width;
+    var side = q.x >= sun.x ? 1 : -1;
+    var reach = q.x + side * (r + 26 + tw);
+    var room = W >= 700 && reach > 10 && reach < W - 10;
+
+    if (room){
+      var up = q.y - r - 26 > 12 ? -1 : 1;
+      var ex = q.x + side * (r + 3), ey = q.y + up * (r + 3);
+      var lx = ex + side * 12, ly = ey + up * 10;
+      ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(lx, ly); ctx.lineTo(lx + side * 6, ly); ctx.stroke();
+      ctx.textAlign = side > 0 ? 'left' : 'right';
+      ctx.fillText(txt, lx + side * 9, ly + 0.5);
+      ctx.restore();
+      return;
+    }
+
+    var w2 = ctx.measureText('YOU ARE').width;
+    var above = q.y <= sun.y;
+    if (above && q.y - r - 34 < 8) above = false;
+    if (!above && q.y + r + 34 > H - 8) above = true;
+    var cx = Math.max(w2 / 2 + 8, Math.min(W - w2 / 2 - 8, q.x));
+    var y1 = above ? q.y - r - 26 : q.y + r + 14, y2 = y1 + 11;
+    ctx.textAlign = 'center';
+    ctx.fillText('YOU ARE', cx, y1);
+    ctx.fillText('HERE', cx, y2);
+    ctx.beginPath();
+    ctx.moveTo(q.x, above ? q.y - r - 3 : q.y + r + 3);
+    ctx.lineTo(q.x, above ? y2 + 6 : y1 - 6);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function drawPlanet(p, t){
+    var sec = t / 1000;
+    var q = pos(orbitOf(R[p.o]), p.th0 + TAU * sec / p.T);
+    var r = p.r * k * (1 + 0.12 * q.depth);
+    if (q.x < -r * 6 || q.x > W + r * 6 || q.y < -r * 6 || q.y > H + r * 6) return;
+    var dx = sun.x - q.x, dy = sun.y - q.y, d = Math.hypot(dx, dy) || 1, ux = dx / d, uy = dy / d;
+
+    var clear = clearOfText(q.x);
+    var alpha = (0.72 + 0.28 * q.depth) * (0.22 + 0.78 * clear * clear);
+    ctx.globalAlpha = alpha;
+    glow(ctx, q.x, q.y, r * 4, 'rgba(200,215,255,.10)');
+    if (p.haze) glow(ctx, q.x, q.y, r * 1.8, p.haze);
+
+    if (p.ring) ringHalf(q, r, false);
+    if (p.earth) drawMoon(q, r, ux, uy, sec, true);
+
+    if (p.earth){
+      sphere(q.x, q.y, r, ux, uy, p);
+      earthSurface(q.x, q.y, r, ux, uy, sec);
+    } else {
+      sphere(q.x, q.y, r, ux, uy, p);
+    }
+
+    if (p.bands){
+      ctx.save();
+      ctx.beginPath(); ctx.arc(q.x, q.y, r, 0, TAU); ctx.clip();
+      ctx.strokeStyle = 'rgba(90,58,26,.28)'; ctx.lineWidth = Math.max(0.6, r * 0.14);
+      [-0.45, -0.1, 0.3].forEach(function(f){
+        ctx.beginPath(); ctx.moveTo(q.x - r, q.y + f * r); ctx.lineTo(q.x + r, q.y + f * r + r * 0.12); ctx.stroke();
+      });
+      ctx.restore();
+    }
+    if (p.atmo){
+      var a0 = Math.atan2(uy, ux);
+      ctx.strokeStyle = p.atmo; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(q.x, q.y, r + 0.8, a0 - 1.35, a0 + 1.35); ctx.stroke();
+    }
+    if (p.ring) ringHalf(q, r, true);
+    if (p.earth){
+      drawMoon(q, r, ux, uy, sec, false);
+      /* Earth's orbit keeps it on screen, so the label is always there */
+      ctx.globalAlpha = 1;
+      drawLabel(q, r, 0.95);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function drawMeteor(t){
+    if (!meteor){
+      if (t < nextMeteor) return;
+      var dir = Math.random() < 0.5 ? 0.55 : Math.PI - 0.55;
+      meteor = { x: W * (0.2 + Math.random() * 0.6), y: H * (0.04 + Math.random() * 0.3),
+        dx: Math.cos(dir), dy: Math.sin(dir), born: t, life: 950, travel: 440 * k, len: 170 * k };
+    }
+    var m = meteor, pr = (t - m.born) / m.life;
+    if (pr >= 1){ meteor = null; nextMeteor = t + 20000 + Math.random() * 35000; return; }
+    var hx = m.x + m.dx * m.travel * pr, hy = m.y + m.dy * m.travel * pr;
+    var tx = hx - m.dx * m.len, ty = hy - m.dy * m.len;
+    var g = ctx.createLinearGradient(tx, ty, hx, hy);
+    g.addColorStop(0, 'rgba(255,246,230,0)');
+    g.addColorStop(1, 'rgba(255,246,230,' + (0.75 * Math.sin(pr * Math.PI)) + ')');
+    ctx.strokeStyle = g; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(hx, hy); ctx.stroke();
+  }
+
+  function draw(t){
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    ctx.drawImage(layer, 0, 0, W, H);
+    var sec = t / 1000;
+    drawRays(sec);
+    twinkle.forEach(function(st){
+      var a = st.a * (still ? 0.8 : 0.5 + 0.5 * Math.sin(sec * st.sp + st.ph));
+      ctx.fillStyle = 'rgba(' + st.c + ',' + a.toFixed(3) + ')';
+      ctx.beginPath(); ctx.arc(st.u * W, st.v * H, st.r, 0, TAU); ctx.fill();
+    });
+    PLANETS.forEach(function(p){ drawPlanet(p, t); });
+    if (!still) drawMeteor(t);
+  }
+
+  function size(){
+    W = cv.clientWidth; H = cv.clientHeight;
+    if (!W || !H) return false;
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+    S = Math.hypot(W, H);
+    k = Math.max(0.75, Math.min(1.25, Math.min(W, H) / 800));
+    /* the sun sits in from the top left corner, far enough in that the inner
+       orbits fit around it; on a phone it sits in the open band left of the
+       button, between the header and the stations */
+    if (W < 700){ sun.x = W * 0.17; sun.y = H * 0.3; }
+    else { sun.x = W * 0.14; sun.y = H * 0.2; }
+    /* the largest orbit that still fits on screen all the way round, with room
+       left at the edge for the Moon's own orbit around Earth */
+    var m = 12 + 6.2 * k * 1.12 * 2.7;
+    var fit = Math.min((sun.x - m) / XE, (W - sun.x - m) / XE, (sun.y - m) / YE, (H - sun.y - m) / YE);
+    R = [fit * 0.42, fit * 0.7, fit, S * 0.28, S * 0.44];
+    BELT = [S * 0.34, S * 0.37];
+    placePlanets();
+    paintLayer();
+    return true;
+  }
+
+  function frame(now){
+    raf = requestAnimationFrame(frame);
+    if (now - last < 33) return;
+    last = now;
+    draw(now - t0);
+  }
+
+  function start(){ if (!still && !raf) raf = requestAnimationFrame(frame); }
+  function stop(){ if (raf) cancelAnimationFrame(raf); raf = null; }
+
+  if (!size()) return;
+  draw(0);
+  start();
+  /* the label is drawn in the page's mono face, which may land after first paint */
+  if (still && document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ draw(0); });
+
+  var resizeTimer = null;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){ if (size()) draw(performance.now() - t0); }, 150);
+  });
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden) stop(); else start();
+  });
 })();
 </script>
 

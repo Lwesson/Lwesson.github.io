@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding is getting cheap. Validation is the product. · Lucas Wesson</title>
+<meta name="description" content="AI is flooding security with findings. The value is moving to whoever can tell which ones are real.">
+<link rel="canonical" href="https://lwesson.github.io/research/validation-is-the-product.html">
+<meta name="theme-color" content="#05070f">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Lucas Wesson">
+<meta property="og:title" content="Finding is getting cheap. Validation is the product.">
+<meta property="og:description" content="AI is flooding security with findings. The value is moving to whoever can tell which ones are real.">
+<meta property="og:url" content="https://lwesson.github.io/research/validation-is-the-product.html">
+<meta property="og:image" content="https://lwesson.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;500;600&family=Archivo:wght@400;500;600&display=swap">
+<style>
+:root{
+  --void:#05070f;
+  --line:rgba(150,180,255,.14);
+  --dim:#6e789c;
+  --mid:#9aa4c8;
+  --text:#d7dcf2;
+  --amber:#f0bc55;
+  --amber-hot:#ffd882;
+  --mono:"Martian Mono","JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{
+  margin:0;background:var(--void);color:var(--text);font-family:var(--sans);
+  font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(127,168,255,.10),transparent 70%);
+  background-repeat:no-repeat;
+}
+.wrap{max-width:680px;margin:0 auto;padding:56px 24px 72px}
+.back{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mid);text-decoration:none}
+.back:hover,.back:focus-visible{color:var(--amber);outline:none}
+.kicker{font-family:var(--mono);font-size:9.5px;letter-spacing:.3em;color:var(--amber);text-transform:uppercase;margin:64px 0 16px}
+h1{font-size:clamp(28px,4.4vw,40px);line-height:1.18;font-weight:600;color:#eef1fc;margin:0 0 18px;text-wrap:balance}
+.dek{font-size:19px;line-height:1.5;color:var(--mid);margin:0 0 30px}
+.byline{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:40px}
+h2{font-size:21px;font-weight:600;color:#e9edfb;margin:46px 0 12px}
+p{margin:0 0 20px;color:#c3c9e4}
+strong{color:#eef1fc;font-weight:600}
+blockquote{margin:26px 0;padding:4px 0 4px 20px;border-left:2px solid var(--amber);color:var(--text);font-size:17.5px}
+a{color:var(--amber);text-decoration:underline;text-decoration-color:rgba(240,188,85,.4);text-underline-offset:3px}
+a:hover,a:focus-visible{color:var(--amber-hot);text-decoration-color:var(--amber-hot);outline:none}
+.sources{margin-top:56px;padding-top:26px;border-top:1px solid var(--line)}
+.sources h2{font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);margin:0 0 14px;font-weight:500}
+.sources ol{margin:0;padding-left:20px;color:var(--dim);font-size:13.5px;line-height:1.7}
+.sources li{margin-bottom:8px}
+.foot{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.foot span,.foot a{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase;text-decoration:none}
+.foot a:hover{color:var(--amber)}
+@media (max-width:460px){.wrap{padding:40px 18px 60px}body{font-size:16px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="back" href="../#research">&larr; Lucas Wesson</a>
+
+  <p class="kicker">// Research · Analysis</p>
+  <h1>Finding is getting cheap. Validation is the product.</h1>
+  <p class="dek">AI is flooding security with findings. The value is moving to whoever can tell which ones are real.</p>
+  <div class="byline">Lucas Wesson · September 2026</div>
+
+  <p>I spend my working hours on two sides of the same problem. At AI labs I evaluate model output and decide whether it is actually right. On my own time I do vulnerability research on HackerOne and Bugcrowd, where I decide whether something I found is actually a vulnerability. This year the two jobs started to look like one job.</p>
+
+  <h2>Discovery is flooding</h2>
+  <p>In February, FIRST forecast that 2026 would set a record for published vulnerabilities, with a median estimate of about 59,000 CVEs.<a href="#s1">[1]</a> The first half of the year made that look conservative. <strong>35,364 CVEs were published between January and June, up 49.5 percent on the same period in 2025.</strong><a href="#s2">[2]</a></p>
+  <p>The number that matters more is the one next to it. <strong>Only 85 of those 35,364, about a quarter of one percent, had been confirmed as exploited in the wild</strong> by the time of that analysis. That figure will rise as the year's vulnerabilities age, but the shape will not change. And 41 percent of new CVEs were published without the product identifiers that automated tools need to match them to real systems.<a href="#s2">[2]</a> As the author of that analysis put it, volume is a triage problem, not a patch-everything problem.</p>
+  <p>Bug bounty felt it first. In January, curl ended its bug bounty program after a year of plausible-looking reports that did not hold up. Daniel Stenberg, curl's lead maintainer, was plain about why:</p>
+  <blockquote>"The main goal with shutting down the bounty is to remove the incentive for people to submit crap and non-well researched reports to us."<a href="#s3">[3]</a></blockquote>
+  <p>A report now costs seconds to generate and hours to disprove, and a small team was paying the difference.</p>
+
+  <h2>The leaderboard footnote</h2>
+  <p>The other headline this cycle was an autonomous system, XBOW, reaching the top of HackerOne's leaderboard.<a href="#s4">[4]</a> It is a real result and I do not wave it away. A few details change what it means. The ranking was the US leaderboard for a single quarter, not the all-time global board.<a href="#s5">[5]</a> Security researcher Utku Sen pointed out that it came from the vulnerability disclosure side, which does not pay, so most experienced hunters are not competing there.<a href="#s6">[6]</a> And XBOW's own write-up describes serious engineering around the agent: ingesting program scopes, scoring targets, deduplicating results, automated validators, and a security team that reviewed every finding before it was submitted.<a href="#s4">[4]</a></p>
+  <p>The outcomes tell the same story. Of roughly 1,060 reports, 130 were resolved, and about 400 closed as duplicates or informative.<a href="#s4">[4]</a></p>
+  <p>I have submitted into a disclosure program myself. Five of my six reports there closed as Informative, meaning acknowledged and not acted on. I know that field. What was demonstrated is that an agent, a capable engineering team, and humans reviewing the output can win on volume in the least contested part of the market. That is worth knowing. It is not the same claim as the headline, and notice where the humans still are: deciding what is real before it goes out.</p>
+
+  <h2>Where the value moves</h2>
+  <p>When finding gets cheap, three things get scarce.</p>
+  <p><strong>Deciding what is real.</strong> A finding is worth something when it demonstrates actual impact, like access to data the attacker should never see, rather than something that merely looks alarming. That judgment is most of the job, and it is exactly what a flood of generated reports makes expensive.</p>
+  <p><strong>Deciding what matters.</strong> A quarter of one percent confirmed exploited means the useful work is ranking, not counting. Knowing which few will be used is the difference between a queue and a pile.</p>
+  <p><strong>Getting it fixed.</strong> A validated finding nobody remediates is a liability with a ticket number.</p>
+
+  <h2>How I build for it</h2>
+  <p>The testing platform I built treats this as a design constraint. The model does the parts it is good at: organizing attack surface, sorting and deduplicating results, drafting reports. Anything that changes state on a target waits for a person to approve it, and every stage checks the program's scope and rules before it runs. The point is not to slow the AI down. The point is that the expensive, trustworthy part of the work, the judgment, stays with someone accountable for it.</p>
+  <p>The same principle runs through model evaluation. When generation is nearly free, the scarce skill is honest evaluation: looking at output, whether it is a model's answer or a vulnerability report, and saying whether it is actually right. That is the work I want to keep doing, and I think it is where the durable value in security is heading.</p>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li id="s1">FIRST forecasts record-breaking 50,000+ CVEs in 2026, Infosecurity Magazine. <a href="https://www.infosecurity-magazine.com/news/first-forecasts-record-50000-cve/" target="_blank" rel="noopener">Link</a></li>
+      <li id="s2">CVE mid-year 2026 check-in, Jerry Gamblin, July 2026. <a href="https://jerrygamblin.com/2026/07/01/3528/" target="_blank" rel="noopener">Link</a></li>
+      <li id="s3">Curl ending bug bounty program after flood of AI slop reports, BleepingComputer. <a href="https://www.bleepingcomputer.com/news/security/curl-ending-bug-bounty-program-after-flood-of-ai-slop-reports/" target="_blank" rel="noopener">Link</a></li>
+      <li id="s4">How XBOW ranked number one, XBOW. <a href="https://xbow.com/blog/top-1-how-xbow-did-it" target="_blank" rel="noopener">Link</a></li>
+      <li id="s5">About the hype around XBOW, Rawsec. <a href="https://blog.raw.pm/en/about-the-hype-around-xbow/" target="_blank" rel="noopener">Link</a></li>
+      <li id="s6">Does XBOW AI hacker deserve the hype, Utku Sen. <a href="https://utkusen.substack.com/p/does-xbow-ai-hacker-deserve-the-hype" target="_blank" rel="noopener">Link</a></li>
+    </ol>
+  </section>
+
+  <div class="foot">
+    <a href="../#research">&larr; Back to the console</a>
+    <span>© 2026 Lucas Wesson</span>
+  </div>
+</main>
+</body>
+</html>
