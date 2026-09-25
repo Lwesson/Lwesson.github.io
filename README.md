@@ -18,7 +18,7 @@ Then open http://localhost:8000 and refresh as you edit.
 ## Files
 
 - `index.html` - the whole site
-- `og-image.png` - social preview card
+- `og-card.png` - link preview card (1200x630). Regenerate with `_card.html?seed=42` (local, not deployed), screenshot at 2x, downscale
 - `favicon.svg`, `favicon.png`, `apple-touch-icon.png` - icons
 - `nav-demo.html` - redirect to the root, kept so an older link still resolves
 - `research/` - write-ups, one standalone page each
